@@ -3,6 +3,7 @@ import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation, Rout
 import Layout from "app/core/layouts/Layout"
 import getTodo from "app/todos/queries/getTodo"
 import deleteTodo from "app/todos/mutations/deleteTodo"
+import { Button } from "@mui/material"
 
 export const Todo = () => {
   const router = useRouter()
@@ -13,18 +14,18 @@ export const Todo = () => {
   return (
     <>
       <Head>
-        <title>Todo {todo.id}</title>
+        <title> Todo {todo.id}</title>
       </Head>
 
       <div>
-        <h1>Todo {todo.id}</h1>
+        <h1> Todo {todo.id}</h1>
         <pre>{JSON.stringify(todo, null, 2)}</pre>
 
         <Link href={Routes.EditTodoPage({ todoId: todo.id })}>
-          <a>Edit</a>
+          <Button>Edit</Button>
         </Link>
 
-        <button
+        <Button
           type="button"
           onClick={async () => {
             if (window.confirm("This will be deleted")) {
@@ -35,7 +36,7 @@ export const Todo = () => {
           style={{ marginLeft: "0.5rem" }}
         >
           Delete
-        </button>
+        </Button>
       </div>
     </>
   )

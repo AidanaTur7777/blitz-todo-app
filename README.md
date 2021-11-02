@@ -9,7 +9,17 @@ This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 Run your app in the development mode.
 
 ```
+git clone (url)
+```
+
+cd /blitz-todo-app
+
+```
+yarn:npm
+```
+
 blitz dev
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -19,13 +29,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Ensure the `.env.local` file has required environment variables:
 
 ```
+
 DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/todo-app
+
 ```
 
 Ensure the `.env.test.local` file has required environment variables:
 
 ```
+
 DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/todo-app_test
+
 ```
 
 ## Tests
@@ -33,7 +47,9 @@ DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/todo-app_test
 Runs your tests using Jest.
 
 ```
+
 yarn test
+
 ```
 
 Blitz comes with a test setup using [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
@@ -43,18 +59,20 @@ Blitz comes with a test setup using [Jest](https://jestjs.io/) and [react-testin
 Blitz comes with a powerful CLI that is designed to make development easy and fast. You can install it with `npm i -g blitz`
 
 ```
-  blitz [COMMAND]
 
-  dev       Start a development server
-  build     Create a production build
-  start     Start a production server
-  export    Export your Blitz app as a static application
-  prisma    Run prisma commands
-  generate  Generate new files for your Blitz project
-  console   Run the Blitz console REPL
-  install   Install a recipe
-  help      Display help for blitz
-  test      Run project tests
+blitz [COMMAND]
+
+dev Start a development server
+build Create a production build
+start Start a production server
+export Export your Blitz app as a static application
+prisma Run prisma commands
+generate Generate new files for your Blitz project
+console Run the Blitz console REPL
+install Install a recipe
+help Display help for blitz
+test Run project tests
+
 ```
 
 You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-overview) documentation.
@@ -64,6 +82,7 @@ You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-ov
 Here is the starting structure of your app.
 
 ```
+
 todo-app
 ├── app/
 │   ├── api/
@@ -93,16 +112,16 @@ todo-app
 │   │   ├── hooks/
 │   │   │   └── useCurrentUser.ts
 │   │   └── layouts/
-│   │       └── Layout.tsx
+│   │   └── Layout.tsx
 │   ├── pages/
 │   │   ├── 404.tsx
-│   │   ├── _app.tsx
-│   │   ├── _document.tsx
+│   │   ├── \_app.tsx
+│   │   ├── \_document.tsx
 │   │   ├── index.test.tsx
 │   │   └── index.tsx
 │   └── users/
-│       └── queries/
-│           └── getCurrentUser.ts
+│   └── queries/
+│   └── getCurrentUser.ts
 ├── db/
 │   ├── index.ts
 │   ├── schema.prisma
@@ -111,7 +130,7 @@ todo-app
 ├── mailers/
 │   └── forgotPasswordMailer.ts
 ├── public/
-│   ├── favicon.ico*
+│   ├── favicon.ico\*
 │   └── logo.png
 ├── test/
 │   ├── setup.ts
@@ -125,6 +144,7 @@ todo-app
 ├── types.d.ts
 ├── types.ts
 └── yarn.lock
+
 ```
 
 These files are:
@@ -173,3 +193,6 @@ The Blitz community is warm, safe, diverse, inclusive, and fun! Feel free to rea
 - [Sponsor or donate](https://github.com/blitz-js/blitz#sponsors-and-donations)
 
 # blitz-todo-app
+```
+
+# Blitz-TODO

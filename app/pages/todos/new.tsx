@@ -2,6 +2,7 @@ import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createTodo from "app/todos/mutations/createTodo"
 import { TodoForm, FORM_ERROR } from "app/todos/components/TodoForm"
+import { Button } from "@mui/material"
 
 const NewTodoPage: BlitzPage = () => {
   const router = useRouter()
@@ -10,14 +11,13 @@ const NewTodoPage: BlitzPage = () => {
   return (
     <div>
       <h1>Create New Todo</h1>
-
+      <p>
+        <Link href={Routes.TodosPage()}>
+          <Button>Todos</Button>
+        </Link>
+      </p>
       <TodoForm
         submitText="Create Todo"
-        // TODO use a zod schema for form validation
-        //  - Tip: extract mutation's schema into a shared `validations.ts` file and
-        //         then import and use it here
-        // schema={CreateTodo}
-        // initialValues={{}}
         onSubmit={async (values) => {
           try {
             const todo = await createTodoMutation(values)
@@ -30,12 +30,6 @@ const NewTodoPage: BlitzPage = () => {
           }
         }}
       />
-
-      <p>
-        <Link href={Routes.TodosPage()}>
-          <a>Todos</a>
-        </Link>
-      </p>
     </div>
   )
 }

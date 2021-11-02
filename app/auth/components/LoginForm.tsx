@@ -3,6 +3,7 @@ import { LabeledTextField } from "app/core/components/LabeledTextField"
 import { Form, FORM_ERROR } from "app/core/components/Form"
 import login from "app/auth/mutations/login"
 import { Login } from "app/auth/validations"
+import { Button } from "@mui/material"
 
 type LoginFormProps = {
   onSuccess?: () => void
@@ -45,7 +46,10 @@ export const LoginForm = (props: LoginFormProps) => {
       </Form>
 
       <div style={{ marginTop: "1rem" }}>
-        Or <Link href={Routes.SignupPage()}>Sign Up</Link>
+        Or
+        <Link href={Routes.SignupPage()}>
+          <Button>Sign Up</Button>
+        </Link>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import Layout from "app/core/layouts/Layout"
 import getTodo from "app/todos/queries/getTodo"
 import updateTodo from "app/todos/mutations/updateTodo"
 import { TodoForm, FORM_ERROR } from "app/todos/components/TodoForm"
+import { Button } from "@mui/material"
 
 export const EditTodo = () => {
   const router = useRouter()
@@ -41,8 +42,10 @@ export const EditTodo = () => {
                 id: todo.id,
                 ...values,
               })
-              await setQueryData(updated)
-              router.push(Routes.ShowTodoPage({ todoId: updated.id }))
+              if (updated) {
+                await setQueryData(updated)
+                router.push(Routes.ShowTodoPage({ todoId: updated.id }))
+              }
             } catch (error: any) {
               console.error(error)
               return {

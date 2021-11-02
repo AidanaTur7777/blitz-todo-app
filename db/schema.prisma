@@ -69,8 +69,8 @@ model Todo {
   id        Int      @id @default(autoincrement())
   title     String
   status    String
-  authorId  Int
-  author    User     @relation(references: [id], fields: [authorId])
+  authorId  Int?
+  author    User?    @relation(references: [id], fields: [authorId])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

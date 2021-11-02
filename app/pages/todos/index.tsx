@@ -1,14 +1,16 @@
 import { Suspense } from "react"
 import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
-import getTodos from "app/todos/queries/getTodos"
+import getMyTodos from "app/todos/queries/getMyTodos"
+import Card from "../Card"
+import { Button } from "@mui/material"
 
 const ITEMS_PER_PAGE = 100
 
 export const TodosList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{ todos, hasMore }] = usePaginatedQuery(getTodos, {
+  const [{ todos, hasMore }] = usePaginatedQuery(getMyTodos, {
     orderBy: { id: "asc" },
     skip: ITEMS_PER_PAGE * page,
     take: ITEMS_PER_PAGE,
@@ -19,22 +21,7 @@ export const TodosList = () => {
 
   return (
     <div>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <Link href={Routes.ShowTodoPage({ todoId: todo.id })}>
-              <a>{todo.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <button disabled={page === 0} onClick={goToPreviousPage}>
-        Previous
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
-        Next
-      </button>
+      <Card todos={todos} />
     </div>
   )
 }
@@ -49,7 +36,7 @@ const TodosPage: BlitzPage = () => {
       <div>
         <p>
           <Link href={Routes.NewTodoPage()}>
-            <a>Create Todo</a>
+            <Button variant="contained">Create Todo</Button>
           </Link>
         </p>
 
@@ -62,6 +49,6 @@ const TodosPage: BlitzPage = () => {
 }
 
 TodosPage.authenticate = true
-TodosPage.getLayout = (page) => <Layout>{page}</Layout>
+TodosPage.getLayout = (page) => <Layout title="Todos list">{page}</Layout>
 
 export default TodosPage
